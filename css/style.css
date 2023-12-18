@@ -35,6 +35,7 @@ header > h2 {
 
 header > .input-container {
   width: 45%;
+  position: relative;
 }
 
 header > .input-container > input {
@@ -42,6 +43,18 @@ header > .input-container > input {
   padding: 1.2rem 2.5rem;
   border-radius: 11px;
   width: 100%;
+}
+
+header > .input-container > i {
+  padding: 12px;
+  background: #1b1b1b;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  position: absolute;
+  border-radius: 11px;
+  right: 8px;
+  top: 8px;
 }
 
 h3 {
