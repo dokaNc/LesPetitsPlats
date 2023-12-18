@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Les Petits Plats</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <header>
+      <h2>
+        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+      </h2>
+      <div class="input-container">
+        <input
+          id="filter"
+          type="text"
+          name="filter"
+          placeholder="Rechercher une recette, un ingrédient, ..."
+        />
+      </div>
+    </header>
+    <main>
+      <section>
+        <article id="filter"></article>
+        <article id="recipe"></article>
+
+        <div class="ingredient-wrapper">
+          <div class="ingredient-wrapper__content">
+            <div class="ingredient-wrapper__title"></div>
+            <div class="ingredient-wrapper__unity"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <!-- SCRIPT -->
     <script type="module" src="./scripts/main.js"></script>
-</body>
+  </body>
 </html>
