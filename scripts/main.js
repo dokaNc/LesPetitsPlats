@@ -5,7 +5,7 @@ import recipeFactory from "./factories/recipeFactory.js";
 // Input Recherche
 const input = document.querySelector('input[id="filter"]');
 let numb = 0;
-input.addEventListener("focusout", (e) => {
+input.addEventListener("input", (e) => {
   if (e.target.value != "") {
     recipeFactory.removeCardDOM();
 
