@@ -1,45 +1,7 @@
 function recipeFactory() {
   // Append DOM Recipe Card
-  function recipeCardDOM() {
-    const recipes = [
-      {
-        id: 1,
-        image: "Recette01.jpg",
-        name: "Limonade de Coco",
-        servings: 1,
-        ingredients: [
-          {
-            ingredient: "Lait de coco",
-            quantity: 400,
-            unit: "ml",
-          },
-          {
-            ingredient: "Jus de citron",
-            quantity: 2,
-          },
-          {
-            ingredient: "Crème de coco",
-            quantity: 2,
-            unit: "cuillères à soupe",
-          },
-          {
-            ingredient: "Sucre",
-            quantity: 30,
-            unit: "grammes",
-          },
-          {
-            ingredient: "Glaçons",
-          },
-        ],
-        time: 10,
-        description:
-          "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
-        appliance: "Blender",
-        ustensils: ["cuillère à Soupe", "verres", "presse citron"],
-      },
-    ];
-
-    console.log(recipes[0].ingredients);
+  function recipeCardDOM(recipes) {
+    const { image, name, description } = recipes;
 
     // Get Element
     const sectionRecipe = document.getElementById("recipe");
@@ -89,11 +51,10 @@ function recipeFactory() {
     ingredientWrapperUnityItem.classList.add("ingredient-wrapper-info__unity");
 
     // Add Data (valeur en dur pour test le visuel)
-    cardImageItem.setAttribute("src", "./assets/image/recette/Recette01.jpg");
-    cardTitleItem.innerText = "Limonade de Coco";
+    cardImageItem.setAttribute("src", `./assets/image/recette/${image}`);
+    cardTitleItem.innerText = name;
     cardRecipeTitleItem.innerText = "Recette";
-    cardSubContentItem.innerHTML =
-      "Mettre les glaçons à votre goût dans le blender, Ajouter le lait  la crème de coco, le jus de 2 citrons et le sucre ensemble. Mixer jusqu'à obtenir la consistance désirée.";
+    cardSubContentItem.innerHTML = description;
     cardIngredientTitleItem.innerText = "Ingrédients";
     ingredientWrapperTitleItem.innerText = "Sucre";
     ingredientWrapperUnityItem.innerText = "30 g";
@@ -115,7 +76,14 @@ function recipeFactory() {
     sectionRecipe.appendChild(cardItem);
   }
 
-  return { recipeCardDOM };
+  function removeCardDOM() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((element) => {
+      element.remove();
+    });
+  }
+
+  return { recipeCardDOM, removeCardDOM };
 }
 
 export default recipeFactory();
