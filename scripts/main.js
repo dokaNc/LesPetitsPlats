@@ -4,13 +4,15 @@ import recipeFactory from "./factories/recipeFactory.js";
 
 // Input Recherche
 const input = document.querySelector('input[id="filter"]');
-let numb = 0;
+
 input.addEventListener("input", (e) => {
   if (e.target.value != "") {
     recipeFactory.removeCardDOM();
 
-    const filter = recipesList.filter((x) =>
-      x.name.match(new RegExp(e.target.value, "i"))
+    const filter = recipesList.filter(
+      (x) =>
+        x.name.match(new RegExp(e.target.value, "i")) ||
+        x.description.match(new RegExp(e.target.value, "i"))
     );
 
     if (filter.length > 0) {
